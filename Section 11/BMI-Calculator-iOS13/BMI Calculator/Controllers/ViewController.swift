@@ -22,16 +22,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        print("Slider changing to \(sender.value)")
+        print("Height Slider changing to \(sender.value)")
         // Converting float to string
         heightSliderLabel.text = "\(String(format: "%.2f", sender.value))m"
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        print("Slider changing to \(sender.value)")
+        print("Weight Slider changing to \(sender.value)")
         // Converting Float to Int to string
         // weightSliderLabel.text = "\(String(format: "%.0f", sender.value))
         weightSliderLabel.text = "\(String(Int(sender.value)))Kg"
+    }
+    
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        let BMI = weightSlider.value / pow(heightSlider.value, 2)
+        print(BMI)
     }
 }
 
