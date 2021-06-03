@@ -50,8 +50,9 @@ class CalculateViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultsViewController
-            print(calculatorBrain.getBMIValue())
             destinationVC.bmiValue = String(format: "%.1f", calculatorBrain.getBMIValue())
+            destinationVC.adviceText = calculatorBrain.getAdvice()
+            destinationVC.bgColor = calculatorBrain.getColor()
         }
     }
 }
